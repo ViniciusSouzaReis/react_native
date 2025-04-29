@@ -1,6 +1,6 @@
 import { type ReactElement, useState, Component } from 'react';
 
-import { Text, View, Button, Image } from 'react-native';
+import { Text, View, Button, Image, StyleSheet } from 'react-native';
 
 export default class App extends Component {
   constructor(props) {
@@ -18,9 +18,9 @@ export default class App extends Component {
 
   render(): ReactElement {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', color: '#fff' }}>
+      <View style={styles.container}>
         <Jobs height={300} width={300}/>
-        <Text>Hello World !!!!</Text>
+        <Text style={styles.text}>Hello World !!!!</Text>
         <Text style={{ color: '#ff0000', fontSize: 25}}>{this.state.count}</Text>
         <Button
           title="Press me"
@@ -34,13 +34,24 @@ export default class App extends Component {
  
 }
 
+
 function Jobs({ height, width}): ReactElement {
   return (
     <Image 
       source={{ uri: 'https://sujeitoprogramador.com/steve.png' }}
-      style={{ width, height, borderRadius: 100 }}
+      style={{ width, height, borderRadius: 100, marginBottom: 20 }}
     />
   );
 }
 
-
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#000000',
+  },
+  text : {
+    color: '#ffffff',
+  }
+});
